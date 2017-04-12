@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <clocale>
 #include <cstdio>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -144,6 +146,110 @@ void print_mainMenu();
 void print_menuTutorial();
 void print_menuTesting();
 void print_menuAbout();
+void print_inter_prima();
+void print_inter_sec();
+void print_inter_ter();
+void print_inter_kvarta();
+void print_inter_kvinta();
+void print_inter_seksta();
+void print_inter_septima();
+void print_inter_octava();
+
+void print_inter_prima(){
+	system("cls");
+	print_piano(35, -1);
+	cout << "Прима" << endl;
+	cout << "Прима – обозначается числом 1, " << endl;
+	cout << "что говорит нам: два звука находятся" << endl;
+	cout << "на одной и той же ступени." << endl;
+	cout << "Значит, прима – это обыкновенное" << endl;
+	cout << "повторение звука, шаг на месте: " << endl;
+	cout << "до и еще раз до, или ре и ре, ми-ми и т.д." << endl;
+	system("pause");
+};
+
+void print_inter_sec(){
+	system("cls");
+	print_piano(5, 15);
+	cout << "Секунда" << endl;
+	cout << "Секунда – обозначается двойкой," << endl;
+	cout << "потому что этот интервал охватывает" << endl;
+	cout << "уже две ступени: один звук находится" << endl;
+	cout << "на какой-либо ноте, а второй на соседней," << endl;
+	cout << "то есть второй по счету ступени. " << endl;
+	cout << "Например: до и ре, ре и ми, ми и фа и т.д." << endl;
+	system("pause");
+};
+
+void print_inter_ter(){
+	system("cls");
+	print_piano(55, 65);
+	cout << "Терция" << endl;
+	cout << "Терция – охватывает три ступени." << endl;
+	cout << "Второй звук находится по отношению " << endl;
+	cout << "к первому на расстоянии трех ступеней, " << endl;
+	cout << "если идти подряд по музыкальной лестнице." << endl;
+	cout << "Примеры терций: до и ми, ре и фа, ми и соль и т.д. " << endl;
+	system("pause");
+};
+
+void print_inter_kvarta(){
+	system("cls");
+	print_piano(35, 50);
+	cout << "Кварта" << endl;
+	cout << "Кварта – теперь интервал расширяется" << endl;
+	cout << "до четырех ступеней, то есть первый звук" << endl;
+	cout << "находится на первой ступени, а второй звук –" << endl;
+	cout << "на четвертной. Например: до и фа, ре и соль и т.д." << endl;
+	cout << "Поясним еще раз, что считать ступеньки можно" << endl;
+	cout << "начинать от любой ноты: хоть от до, хоть от ре – " << endl;
+	cout << "выбираем то, что нам нужно." << endl;
+	system("pause");
+};
+
+void print_inter_kvinta(){
+	system("cls");
+	print_piano(0, 20);
+	cout << "Квинта" << endl;
+	cout << "Квинта – обозначение числом 5 говорит о том," << endl;
+	cout << "что ширина интервала – 5 ступеней. " << endl;
+	cout << "Например: до и соль, ре и ля, ми и си и т.д." << endl;
+	system("pause");
+};
+
+void print_inter_seksta(){
+	system("cls");
+	print_piano(10, 35);
+	cout << "Секста" << endl;
+	cout << "Секста– число 6, которым он обозначается, " << endl;
+	cout << "указывают на то, что нужно отсчитать шесть" << endl;
+	cout << "ступеней, чтобы получить сексту. Примеры" << endl;
+	cout << "секст: до и ля, ре и си, ми и до." << endl;
+	system("pause");
+};
+
+void print_inter_septima(){
+	system("cls");
+	print_piano(15, 45);
+	cout << "Септима" << endl;
+	cout << "Септима – число 7, которыми он обозначается," << endl;
+	cout << "указывает на то, что нужно отсчитать семь" << endl;
+	cout << "ступеней, чтобы получить септиму. Примеры " << endl;
+	cout << "септим (все вверх по лестнице): до и си, ре и до, ми и ре." << endl;
+	system("pause");
+};
+
+void print_inter_octava(){
+	system("cls");
+	print_piano(0, 35);
+	cout << "Октава" << endl;
+	cout << "Октава – последний интервал, такой же легкий," << endl;
+	cout << "как и прима. Это тоже повторение звука," << endl;
+	cout << "только на другой высоте. Например: до первой" << endl;
+	cout << "октавы и до второй октавы, ре и ре, ми и ми и т.д." << endl;
+	system("pause");
+};
+
 
 /*--------------PRINT FUNCTIONS----------------------*/
 
@@ -156,9 +262,9 @@ void menuAbout();
 /*--------------MENU FUNCTIONS----------------------*/
 
 /*--------------QUESTIONS----------------------*/
-int question(int answer, string question, string variants){
+int question(int answer, string question, string variants, int key1, int key2){
     system ("cls");
-    print_piano(-1, -1);
+    print_piano(key1, key2);
 
     cout << question <<endl;
     cout << variants << endl;
@@ -206,14 +312,13 @@ void menuTesting() {
 В конце пользователю выводится его количество правильных ответов.
 */
         //for(int i...) {
-        result += question(1, "QUESTION", "a, b, c, d");
-        result += question(1, "QUESTION", "a, b, c, d");
-        result += question(1, "QUESTION", "a, b, c, d");
+        result += question(1, "QUESTION", "a, b, c, d", -1, -1);
+
         //}
 
         system ("cls");
         print_piano(-1, -1);
-        cout << "Your score: "<< result <<endl;
+        cout << "Your score: " << result << endl;
 
         system("pause");
         break;
@@ -253,66 +358,28 @@ void menuTutorial() {
         case 0:
             return;
         case 1:
-            system("cls");
-            print_piano(35, -1);
-            cout << "Прима" << endl;
-
-            system("pause");
+			print_inter_prima();
             break;
         case 2:
-            system("cls");
-            print_piano(5, 15);
-            cout << "Секунда" << endl;
-
-            system("pause");
+			print_inter_sec();
             break;
         case 3:
-            system("cls");
-            print_piano(55, 65);
-            cout << "Терция" << endl;
-            cout << "" << endl;
-            cout << " " << endl;
-            cout << "  " << endl;
-            cout << " " << endl;
-            cout << " " << endl;
-
-            system("pause");
+			print_inter_ter();
             break;
         case 4:
-            system("cls");
-            print_piano(35, 50);
-            cout << "Кварта" << endl;
-            cout << "" << endl;
-
-            system("pause");
+			print_inter_kvarta();
             break;
         case 5:
-            system("cls");
-            print_piano(0, 20);
-            cout << "Квинта" << endl;
-
-            system("pause");
+			print_inter_kvinta();
             break;
         case 6:
-            system("cls");
-            print_piano(10, 35);
-            cout << "Секста" << endl;
-
-            system("pause");
+			print_inter_seksta();
             break;
         case 7:
-            system("cls");
-            print_piano(15, 45);
-            cout << "Септима" << endl;
-
-            system("pause");
+			print_inter_septima();
             break;
         case 8:
-            system("cls");
-            print_piano(0, 35);
-            cout << "Октава" << endl;
-
-            system("pause");
+			print_inter_octava();
             break;
         default:
             cout << "Данного пункта нет в меню" << endl;
