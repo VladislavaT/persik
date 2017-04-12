@@ -262,22 +262,22 @@ void menuAbout();
 /*--------------MENU FUNCTIONS----------------------*/
 
 /*--------------QUESTIONS----------------------*/
-int question(int answer, string question, string variants, int key1, int key2){
+int question(int answer, string variants, int key1, int key2){
     system ("cls");
     print_piano(key1, key2);
 
-    cout << question <<endl;
-    cout << variants << endl;
+	cout << variants << endl;
+    cout << "Введите номер правильного варианта: " <<endl;
 
     int choice;
     cin >> choice;
-    if(choice != answer){
-        cout << "Wrong answer" <<endl;
-        cout << "Correct answer is " << answer <<endl;
+    if(choice != answer ){
+        cout << "Неверный ответ" <<endl;
+        cout << "Правильный ответ: " << answer <<endl;
         system("pause");
         return 0;
     }
-    cout << "Correct answer" <<endl;
+    cout << "Правильный ответ" <<endl;
     system("pause");
     return 1;
 }
@@ -291,7 +291,8 @@ void menuTesting() {
         system ("cls");
         print_piano(-1, -1);
 
-        cout << "Some text for test" <<endl;
+        cout << "Ваша задача состоит в определении интервалов,\nизображенных на фортепианной клавиатуре." <<endl;
+		cout << "Перед прохождением теста, рекомендуется ознакомиться с пунктом 'Обучение'." << endl;
         system("pause");
 
         /*Тут цикл будет.
@@ -312,13 +313,23 @@ void menuTesting() {
 В конце пользователю выводится его количество правильных ответов.
 */
         //for(int i...) {
-        result += question(1, "QUESTION", "a, b, c, d", -1, -1);
+        result += question(2, "1. Прима\n2. Терция\n3. Кварта\n4. Секунда", 30, 40);
+		result += question(1, "1. Квинта\n2. Кварта\n3. Септима\n4. Октава", 15, 35);
+		result += question(4, "1. Прима\n2. Септима\n3. Секунда\n4. Кварта", 15, 30);
+		result += question(2, "1. Септима\n2. Секста\n3. Квинта\n4. Терция", 20, 45);
+		result += question(3, "1. Кварта\n2. Прима\n3. Секунда\n4. Терция", 55, 60);
+		result += question(1, "1. Септима\n2. Терция\n3. Квинта\n4. Кварта", 0, 30);
+		result += question(4, "1. Октава\n2. Секста\n3. Кварта\n4. Прима", 45, -1);
+		result += question(3, "1. Прима\n2. Терция\n3. Октава\n4. Секунда", 0, 35);
+		result += question(1, "1. Терция\n2. Прима\n3. Секунда\n4. Кварта", 55, 65);
+		result += question(3, "1. Септима\n2. Прима\n3. Секста\n4. Квинта", 10, 35);
+		result += question(2, "1. Секунда\n2. Квинта\n3. Терция\n4. Кварта", 0, 20);
 
         //}
 
         system ("cls");
         print_piano(-1, -1);
-        cout << "Your score: " << result << endl;
+        cout << "Ваш результат: " << result << endl;
 
         system("pause");
         break;
