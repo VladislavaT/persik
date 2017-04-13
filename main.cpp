@@ -1,5 +1,5 @@
-/*PIANO TUTORIAL*/
-#include <iostream>
+﻿/*PIANO TUTORIAL*/
+
 #include <Windows.h>
 #include <stdlib.h>
 #include <clocale>
@@ -11,6 +11,7 @@
 using namespace std;
 
 /*--------------SUPPORT FUNCTIONS----------------------*/
+
 
 /*Object of console for styling*/
 HANDLE hConsole = GetStdHandle (STD_OUTPUT_HANDLE);
@@ -103,14 +104,16 @@ void print_piano (int key1, int key2) {
 }
 
 string readFile() {
-    ifstream fin ("quiz.txt", ifstream::binary);
+    ifstream fin ("quiz.txt" , ifstream::binary);
     if (!fin.is_open())
         return NULL;
     else {
         fin.seekg (0, fin.end);
         int length = fin.tellg();
         fin.seekg (0, fin.beg);
+
         char *buff = new char[length];
+
         fin.read (buff, length);
         fin.close();
         return buff;
@@ -306,8 +309,11 @@ void menuTesting() {
         system ("cls");
         print_piano (-1, -1);
         print_menuTesting();
+
         string quiz = readFile();
+
         for (int i = 0; i < int (quiz.length()); i++) {
+
             if (quiz[i] == '#') {
                 int answer = quiz[i-1] - '0';
                 string variants = "";
@@ -402,5 +408,4 @@ int main() {
             continue;
         }
     }
-    return 0;
 }
